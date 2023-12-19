@@ -1,12 +1,16 @@
 import com.github.mideo.aoc.exercises.AdventOfCodeExercise
 
+import scala.io.Source
+
 object Main {
   def main(args: Array[String]): Unit = {
     christmasTree()
     AdventOfCodeExercise.list("com.github.mideo.aoc.exercises").foreach(
       exercise => {
-        println(s"Running ${exercise.name}")
-        exercise.run()
+        println(s"\nRunning ${exercise.name}")
+        println(s"Exercise url: ${exercise.url}")
+        val input = Source.fromResource(s"${exercise.getClass.getSimpleName}.txt").getLines().mkString("\n")
+        exercise.run(input)
       }
     )
   }

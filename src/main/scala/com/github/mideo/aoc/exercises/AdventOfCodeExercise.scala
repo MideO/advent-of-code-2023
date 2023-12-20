@@ -23,5 +23,5 @@ object AdventOfCodeExercise {
     .getSubTypesOf(classTag[AdventOfCodeExercise].runtimeClass)
     .asScala
     .map(it => it.getDeclaredConstructor().newInstance().asInstanceOf[AdventOfCodeExercise])
-    .toList
+    .toList.reverse
 }
